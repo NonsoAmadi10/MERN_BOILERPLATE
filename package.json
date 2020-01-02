@@ -1,0 +1,88 @@
+{
+  "name": "mern",
+  "version": "1.0.0",
+  "description": "Shopping list built with full stack",
+  "main": "server.js",
+  "scripts": {
+    "client": "cross-env NODE_ENV=development webpack-dev-server -d --open --hot",
+    "build": "babel backend --out-dir dist && cross-env NODE_ENV=production webpack -p",
+    "start": "node dist/server.js",
+    "dev": "concurrently \"yarn run server\" \"yarn run client\"",
+    "server": "nodemon --exec babel-node backend/server.js"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "jsx"
+    ],
+    "moduleDirectories": [
+      "node_modules"
+    ],
+    "setupFiles": [
+      "<rootDir>/src/tests/setup.js"
+    ],
+    "moduleNameMapper": {
+      "\\.(css|styl|less|sass|scss)$": "identity-obj-proxy"
+    },
+    "transform": {
+      "^.+\\.js$": "babel-jest",
+      "^.+\\.jsx$": "babel-jest",
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/src/tests/__mock__/fileTransformer.js"
+    }
+  },
+  "author": "Nonso Amadi",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/cli": "^7.7.7",
+    "@babel/core": "^7.7.7",
+    "@babel/node": "^7.7.7",
+    "@babel/plugin-proposal-class-properties": "^7.3.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.3.1",
+    "@babel/plugin-transform-async-to-generator": "^7.2.0",
+    "@babel/preset-env": "^7.7.7",
+    "@babel/preset-react": "^7.7.4",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-eslint": "^10.0.1",
+    "babel-jest": "^24.0.0",
+    "babel-loader": "^8.0.5",
+    "cross-env": "^5.2.0",
+    "css-loader": "^2.1.0",
+    "enzyme": "^3.8.0",
+    "enzyme-adapter-react-16": "^1.8.0",
+    "eslint": "^6.7.2",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.19.1",
+    "eslint-plugin-jsx-a11y": "^6.2.0",
+    "eslint-plugin-react": "^7.12.4",
+    "file-loader": "^3.0.1",
+    "html-webpack-plugin": "^3.2.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^24.0.0",
+    "node-sass": "^4.11.0",
+    "nodemon": "^2.0.2",
+    "react-hot-loader": "^4.6.3",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "url-loader": "^1.1.2",
+    "webpack": "^4.29.0",
+    "webpack-cli": "^3.2.1",
+    "webpack-dev-server": "^3.1.14",
+    "whatwg-fetch": "^3.0.0"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.7.0",
+    "axios": "^0.19.0",
+    "concurrently": "^5.0.2",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.8.1",
+    "prop-types": "^15.6.2",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0",
+    "react-redux": "*",
+    "react-router-dom": "^4.3.1",
+    "redux": "*",
+    "redux-thunk": "*"
+  }
+}
