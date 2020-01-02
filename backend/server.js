@@ -1,20 +1,34 @@
-import "@babel/polyfill";
+import '@babel/polyfill';
 
-import dotenv from "dotenv";
+import path from 'path';
 
-import express from "express";
+import dotenv from 'dotenv';
 
-import mongoose from "mongoose";
+import express from 'express';
 
-import itemsRoute from "./routes/items";
+import mongoose from 'mongoose';
+
+import itemsRoute from './routes/items';
+
 const app = express();
 dotenv.config();
-app.use("/items", itemsRoute);
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use('/api/items', itemsRoute);
 
 mongoose
   .connect(process.env.DB_URL)
-  .then(connect => console.log("db connected"))
+  .then(connect => console.log('db connected'))
   .catch(err => console.log(err));
+
+if (process.env.NODE_ENV === 'production') {
+  // Set static folder
+  app.use(express.static('build'));
+
+  app.get('/', (req, res) => {
+    res.sendFile(path.resolve('../build/index.html'));
+  });
+}
 const port = process.env.PORT || 8080;
 
 app.listen(port, () => console.log(`Server is running on Port ${port}`));

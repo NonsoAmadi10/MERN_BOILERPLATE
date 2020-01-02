@@ -6,10 +6,11 @@
   "scripts": {
     "client": "cross-env NODE_ENV=development webpack-dev-server -d --open --hot",
     "build": "babel backend --out-dir dist && cross-env NODE_ENV=production webpack -p",
-    "start": "node dist/server.js",
+    "start": "set NODE_ENV=production && node dist/server.js",
     "dev": "concurrently \"yarn run server\" \"yarn run client\"",
     "server": "nodemon --exec babel-node backend/server.js"
   },
+  "proxy": "http://localhost:8080/api/items",
   "jest": {
     "moduleFileExtensions": [
       "js",
@@ -82,6 +83,7 @@
     "react-dom": "^16.7.0",
     "react-redux": "*",
     "react-router-dom": "^4.3.1",
+    "reactstrap": "^8.2.0",
     "redux": "*",
     "redux-thunk": "*"
   }
