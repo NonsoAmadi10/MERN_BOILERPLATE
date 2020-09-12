@@ -16,7 +16,7 @@
 
 
 ### Author
-- Chinonso Amadi
+Penciledge Dev Team
 
 ### Acknowledgements
 - This project was inspired by Brad Traversy's MERN stack tutorial on youtube.
