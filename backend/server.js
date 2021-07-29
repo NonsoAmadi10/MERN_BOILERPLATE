@@ -8,6 +8,7 @@ import express from 'express';
 
 import mongoose from 'mongoose';
 import auth from './auth/routes';
+import product from './product/routes';
 
 const app = express();
 dotenv.config();
@@ -15,11 +16,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 auth(app);
+product(app);
 mongoose
   .connect(process.env.DB_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    useCreateIndex: true
+    keepAlive: true,
+    useCreateIndex: true,
   })
   .then(() => console.table('db connected'))
   .catch((err) => console.table(err));

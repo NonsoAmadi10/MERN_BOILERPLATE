@@ -10,7 +10,7 @@ class Responses {
    * @param {String} message - The error message you want to set.
    * @returns {object} res - The HTTP response object
    */
-  static serverError(res, message = "Internal server error") {
+  static serverError(res, message = 'Internal server error') {
     return res.status(500).json({
       success: false,
       message,
@@ -53,7 +53,7 @@ class Responses {
    */
   static checkExpressErrors(err, req, res, next) {
     res.status(500).json({
-      message: "Something failed",
+      message: 'Something failed',
       success: false,
     });
     next();
