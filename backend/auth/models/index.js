@@ -33,7 +33,7 @@ const userSchema = new Schema(
       default: false,
     },
   },
-  { timestamps: true }
+  { timestamps: true },
 );
 
 userSchema.plugin(uniqueValidator, { message: 'This user exist!' });

@@ -29,7 +29,7 @@ class Authentication {
       isAdmin: payload.isAdmin,
       email: payload.email,
     }, process.env.JWT_SECRET, {
-      expiresIn
+      expiresIn,
     });
     const scrambledToken = shuffleToken(token);
     return scrambledToken;
@@ -48,7 +48,7 @@ class Authentication {
         if (err) {
           output = {
             Error: 'Failed to authenticate token',
-            success: false
+            success: false,
           };
         } else {
           output = {
@@ -59,7 +59,7 @@ class Authentication {
           };
         }
         return output;
-      }
+      },
     );
   }
 }

@@ -44,7 +44,11 @@ const productSchema = new Schema(
       default: 'IN_STOCK',
     },
   },
-  { toObject: {getters: true, setters: true } },
+  {
+    toObject: { getters: true, setters: true },
+    toJSON: { getters: true, setters: true },
+    runSettersonQuery: true,
+  },
 );
 
 productSchema.plugin(uniqueValidator, { message: 'Invalid URL' });

@@ -9,6 +9,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import auth from './auth/routes';
 import product from './product/routes';
+import order from './orders/routes';
 
 const app = express();
 dotenv.config();
@@ -17,6 +18,7 @@ app.use(express.urlencoded({ extended: true }));
 
 auth(app);
 product(app);
+order(app);
 mongoose
   .connect(process.env.DB_URL, {
     useNewUrlParser: true,
