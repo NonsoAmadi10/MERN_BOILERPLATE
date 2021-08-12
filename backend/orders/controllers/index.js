@@ -55,7 +55,7 @@ class OrderController {
 
         const updatedOrder = await order.save();
 
-        return Response.requestSuccessful(res, updatedOrder, 200);
+        return Response.requestSuccessful(res, updatedOrder.toObject(), 200);
       }
 
       return Response.clientError(res, 'Order does not exist', 404);

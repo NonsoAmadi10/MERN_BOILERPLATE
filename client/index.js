@@ -1,27 +1,28 @@
-import React from "react";
+import React from 'react';
 
-import ReactDOM from "react-dom";
+import ReactDOM from 'react-dom';
 
-import { AppContainer } from "react-hot-loader";
+import { AppContainer } from 'react-hot-loader';
 
-import App from "./App";
-import "./style.scss";
+import App from './App';
+import './style.scss';
+import './styles/output.css';
 
-const root = document.getElementById("root");
+const root = document.getElementById('root');
 
-const render = Component => {
+const render = (Component) => {
   ReactDOM.render(
     <AppContainer>
       <Component />
     </AppContainer>,
-    root
+    root,
   );
 };
 
 render(App);
 
 if (module.hot) {
-  module.hot.accept("./App", () => {
+  module.hot.accept('./App', () => {
     render(App);
   });
 }
